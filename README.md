@@ -1,57 +1,102 @@
-# Note to Shelf
+# Note-Taking Tool Documentation
 
-<!--
 
-Create a shell script that functions as a command-line note-taking tool. This tool should help you quickly capture and organize thoughts, reminders, and tasks directly from the terminal.
+This is a simple command-line note-taking tool written in Bash. It allows users to add, list, and search notes directly from the terminal. All notes are stored in a plain text file with timestamps for easy organization.
+
+
+## Features
+
+- **Add a Note**: Quickly add a new note with a timestamp.
+- **List All Notes**: View all stored notes in chronological order.
+- **Search Notes**: Search for notes containing specific keywords, ignoring timestamps in the output.
+
 
 ## Requirements
 
-- The script must support the following commands:
-    - Add a new note: `note add "Your note text here"`
-    - List all notes: `note list`
-    - Search notes: `note search "keyword"`
-- Implementation requirements:
-    - Store notes in a text file with proper date/time stamps
-    - Include error handling for all commands
-    - Implement input validation
-    - Add proper logging for debugging
+- A Unix-like operating system with Bash installed.
+- Basic terminal knowledge to execute the script.
+- `grep` and `sed` utilities (pre-installed on most Unix systems).
 
-## Testing Criteria
 
-Your script will be tested against the following scenarios:
+## Usage
 
-- Adding notes with special characters
-- Proper file operations (read/write)
-- Correct date/time formatting
-- Search functionality accuracy
-- Proper exit codes for success/failure
+To use the script, navigate to the directory containing it and execute the commands as follows:
 
-## Example Usage
 
-```bash
-#!/bin/bash
+### Adding a Note
 
-# Add a note
-$ ./note.sh add "Schedule dentist appointment"
-Note added successfully
+To add a note, use the `add` command followed by the note text in quotes:
 
-# List all notes
-$ ./note.sh list
-2025-01-06 12:04:06 - Schedule dentist appointment
-2025-01-06 12:05:04 - Buy groceries
+    ./note.sh add "Your note text here"
 
-# Search notes
-$ ./note.sh search "dentist"
-2025-01-06 12:04:06 - Schedule dentist appointment
-```
 
-## Tips and Tricks
+Example:
+ 
+$ ./note.sh add "Buy groceries"  
+Note added successfully.
 
-You might find the following resources helpful for completing this assignment:
+### Listing All Notes
 
-- https://www.redhat.com/en/blog/arguments-options-bash-scripts
-- https://linuxhint.com/bash_append_line_to_file/
-- https://linuxconfig.org/how-to-find-a-string-or-text-in-a-file-on-linux
-- https://www.geeksforgeeks.org/create-timestamp-variable-in-bash-script/
+To list all notes, use the `list` command:
 
--->
+    ./note.sh list
+
+
+Example:
+
+$ ./note.sh list  
+2025-01-15 14:30:00 - Buy groceries  
+2025-01-15 14:45:00 - Schedule dentist appointment  
+
+### Searching Notes
+
+To search for a specific keyword, use the `search` command followed by the keyword:
+
+    ./note.sh search "keyword"
+
+
+Example:
+
+$ ./note.sh search "dentist"  
+Schedule dentist appointment  
+
+### Help
+
+If you use an invalid command or incorrect syntax, the script displays usage instructions:
+
+    Usage: ./note.sh {add "note text"|list|search "keyword"}
+
+
+## File Management
+
+- Notes are stored in a plain text file named `notes.txt` in the script's directory.
+- Each note is saved with a timestamp in the format `YYYY-MM-DD HH:MM:SS`.
+*/
+
+## Exit Codes
+
+- `0`: Command executed successfully.
+- `1`: Command failed (e.g., empty input, invalid command, or no matching results).
+*/
+
+## Example Session
+
+$ ./note.sh add "Learn Bash scripting"  
+Note added successfully.
+
+$ ./note.sh list  
+2025-01-15 14:00:00 - Learn Bash scripting
+
+$ ./note.sh search "Bash"  
+Learn Bash scripting
+
+
+## Testing
+
+Use the included `Vagrantfile` to spin up a Linux virtual machine for testing. The script is evaluated based on:
+
+- Correct handling of input/output.
+- Proper error handling and exit codes.
+- Compatibility with special characters in notes.
+- Correct timestamp formatting.
+
