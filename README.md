@@ -1,7 +1,7 @@
 # Note-Taking Tool Documentation
 
 
-# This is a simple command-line note-taking tool written in Bash. It allows users to add, list, and search notes directly from the terminal. All notes are stored in a plain text file with timestamps for easy organization.
+This is a simple command-line note-taking tool written in Bash. It allows users to add, list, and search notes directly from the terminal. All notes are stored in a plain text file with timestamps for easy organization.
 
 
 ## Features
