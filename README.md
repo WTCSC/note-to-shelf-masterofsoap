@@ -13,14 +13,11 @@ This is a simple command-line note-taking tool written in Bash. It allows users 
 - `grep` and `sed` utilities (pre-installed on most Unix systems).
 
 ## Usage
+To use the script, navigate to the directory containing it and execute the commands as follows:
 
 ### Adding a Note
 To add a note, use the `add` command followed by the note text in quotes:
 ```bash
-./note.sh add "Your note text here"
-
-bash
-Copy code
 ./note.sh add "Your note text here"
 Example:
 
@@ -59,27 +56,3 @@ If you use an invalid command or incorrect syntax, the script displays usage ins
 bash
 Copy code
 Usage: ./note.sh {add "note text"|list|search "keyword"}
-File Management
-Notes are stored in a plain text file named notes.txt in the script's directory.
-Each note is saved with a timestamp in the format YYYY-MM-DD HH:MM:SS.
-Exit Codes
-0: Command executed successfully.
-1: Command failed (e.g., empty input, invalid command, or no matching results).
-Example Session
-bash
-Copy code
-$ ./note.sh add "Learn Bash scripting"
-Note added successfully.
-
-$ ./note.sh list
-2025-01-15 14:00:00 - Learn Bash scripting
-
-$ ./note.sh search "Bash"
-Learn Bash scripting
-Testing
-Use the included Vagrantfile to spin up a Linux virtual machine for testing. The script is evaluated based on:
-
-Correct handling of input/output.
-Proper error handling and exit codes.
-Compatibility with special characters in notes.
-Correct timestamp formatting.
